@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Oceanside Blinds & Shades | Premium Hunter Douglas in North County San Diego</title>
+  <meta name="description" content="Premium Hunter Douglas shades & blinds with free in‑home consultations in Oceanside, Carlsbad, Vista, Encinitas, and North County San Diego. Expert measurement, honest guidance, pro installation." />
+  <meta property="og:title" content="Oceanside Blinds & Shades" />
+  <meta property="og:description" content="Premium Hunter Douglas window coverings in North County San Diego. Free consultations, expert measurements, and professional installs." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com" />
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    :root{
+      --bg:#ffffff; /* light */
+      --card:#ffffff; /* white cards */
+      --muted:#64748b; /* slate-500 */
+      --text:#0f172a; /* slate-900 */
+      --accent:#0ea5e9; /* sky-500 */
+      --accent-2:#22d3ee; /* cyan-400 */
+      --success:#16a34a; /* green-600 */
+      --warning:#f59e0b; /* amber-500 */
+      --container: 1200px;
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;border-radius:12px}
+    .container{max-width:var(--container);margin:0 auto;padding:24px}
+    header{position:sticky;top:0;backdrop-filter:saturate(180%) blur(10px);background:rgba(255,255,255,.85);border-bottom:1px solid rgba(2,6,23,.06);z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700}
+    .brand img{width:36px;height:36px;border-radius:8px}
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{padding:12px 18px;border-radius:999px;border:1px solid rgba(148,163,184,.2);background:linear-gradient(135deg, rgba(56,189,248,.15), rgba(34,211,238,.10));color:var(--text);font-weight:600;display:inline-flex;gap:8px;align-items:center}
+    .btn:hover{border-color:rgba(148,163,184,.4)}
+    .btn.primary{background:linear-gradient(135deg, var(--accent), var(--accent-2));color:#ffffff;border-color:transparent}
+    .btn.ghost{background:transparent}
+
+    .hero{padding:64px 0;background:radial-gradient(1200px 600px at 20% -10%, rgba(14,165,233,.18), transparent 60%), radial-gradient(900px 500px at 100% 0%, rgba(34,211,238,.16), transparent 60%)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+    .headline{font-size: clamp(28px, 5vw, 48px);line-height:1.05;margin:0 0 12px}
+    .sub{font-size: clamp(16px, 1.8vw, 20px);color:var(--muted);margin:0 0 24px}
+    .trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;color:var(--muted)}
+    .trust .pill{border:1px solid rgba(2,6,23,.08);border-radius:999px;padding:8px 12px;display:flex;gap:8px;align-items:center;background:rgba(2,6,23,.04)}
+
+    .card{background:var(--card);border:1px solid rgba(2,6,23,.08);border-radius:var(--radius);padding:20px;box-shadow:0 10px 24px rgba(2,6,23,.06)}
+
+    .grid{display:grid;gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    .grid.cols-4{grid-template-columns:repeat(4,1fr)}
+    @media (max-width:980px){.hero-grid{grid-template-columns:1fr}.grid.cols-3,.grid.cols-4{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.grid.cols-3,.grid.cols-4{grid-template-columns:1fr}}
+
+    section{padding:48px 0}
+    .section-title{font-size:26px;margin:0 0 12px}
+    .muted{color:var(--muted)}
+
+    .product{display:flex;flex-direction:column;gap:10px}
+    .product h4{margin:0}
+
+    .how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .step{counter-increment: step;position:relative;padding-left:18px}
+    .step::before{content: counter(step);position:absolute;left:-2px;top:-4px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#001018;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:800}
+
+    .reviews{display:grid;gap:14px}
+    .review{display:flex;gap:16px}
+    .stars{color:#fbbf24}
+
+    .service-area .chips{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{background:rgba(148,163,184,.12);border:1px solid rgba(148,163,184,.18);border-radius:999px;padding:8px 12px}
+
+    footer{padding:36px 0;border-top:1px solid rgba(2,6,23,.08);background:#f8fafc;color:var(--text)}
+
+    .mobile-sticky-cta{position:fixed;bottom:8px;left:0;right:0;display:none;justify-content:center;z-index:60}
+    .mobile-sticky-cta .wrap{display:flex;gap:8px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border:1px solid rgba(2,6,23,.08);padding:12px 12px;border-radius:999px}
+    @media (max-width:720px){.mobile-sticky-cta{display:flex}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img id="logo" alt="Oceanside Blinds & Shades logo" />
+        <span id="businessName">Oceanside Blinds & Shades</span>
+      </div>
+      <nav class="cta-row">
+        <a class="btn ghost" id="textBtn" href="#">Text for Quote</a>
+        <a class="btn ghost" id="callBtn" href="#">Call Now</a>
+        <a class="btn primary" id="scheduleBtn" href="#">Schedule Your Free Consultation</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1 class="headline">Premium Hunter Douglas Shades & Blinds in North County San Diego</h1>
+        <p class="sub">Free in-home consultations, expert measurements, and professional window covering guidance.</p>
+        <div class="cta-row">
+          <a class="btn primary" id="heroPrimaryCta" href="#">Schedule Your Free Consultation</a>
+          <a class="btn" id="heroSecondaryCta" href="#">Call Now</a>
+        </div>
+        <div class="trust">
+          <span class="pill"><img id="hdLogo" alt="Hunter Douglas Dealer" style="height:20px"/> Hunter Douglas Dealer</span>
+          <span class="pill">Licensed & Insured</span>
+          <span class="pill">Local Oceanside business</span>
+          <span class="pill">⭐️⭐️⭐️⭐️⭐️ <span class="muted">Review Rated</span></span>
+          <span class="pill">Fast turnaround times</span>
+        </div>
+      </div>
+      <div class="card">
+        <img id="heroImage" alt="Beautiful modern living room with premium shades" />
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST ELEMENTS (extra row) -->
+  <section>
+    <div class="container grid cols-4">
+      <div class="card">
+        <strong>Licensed & Insured</strong>
+        <p class="muted">Professional, worry‑free installs with protection.
+      </div>
+      <div class="card">
+        <strong>Hunter Douglas Certified</strong>
+        <p class="muted">Backed by premium products & warranties.
+      </div>
+      <div class="card">
+        <strong>Local & Responsive</strong>
+        <p class="muted">Oceanside‑based service with fast lead times.
+      </div>
+      <div class="card">
+        <strong>Smart Shade Experts</strong>
+        <p class="muted">Automations, big sliders, bay windows & more.
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU OFFER -->
+  <section id="products">
+    <div class="container">
+      <h2 class="section-title">Window Covering Solutions</h2>
+      <p class="muted">Explore our most‑requested categories.</p>
+      <div class="grid cols-4" id="productGrid"></div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section>
+    <div class="container grid cols-2">
+      <div>
+        <h2 class="section-title">Why Choose Us</h2>
+        <ul class="muted">
+          <li>Free professional measurement</li>
+          <li>Hunter Douglas certified dealer</li>
+          <li>Expertise in tricky windows, large sliders, bay windows</li>
+          <li>Local Oceanside‑based service</li>
+          <li>Honest recommendations, no pressure</li>
+          <li>Clean installs and lifetime service support</li>
+        </ul>
+      </div>
+      <div class="card"><img id="chooseUsImage" alt="Installer measuring a window precisely" /></div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="service-area">
+    <div class="container">
+      <h2 class="section-title">Proudly Serving North County</h2>
+      <p class="muted">Oceanside, Carlsbad, Vista, San Marcos, Encinitas, Escondido, Fallbrook, and surrounding North County communities.</p>
+      <div class="chips">
+        <span class="chip">Oceanside</span><span class="chip">Carlsbad</span><span class="chip">Vista</span><span class="chip">San Marcos</span><span class="chip">Encinitas</span><span class="chip">Escondido</span><span class="chip">Fallbrook</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY / BEFORE & AFTERS -->
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title">Gallery</h2>
+      <p class="muted">Recent projects around North County San Diego.</p>
+      <div class="grid cols-3" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <section id="beforeAfter">
+    <div class="container">
+      <h3 class="section-title">Before & After</h3>
+      <div class="grid cols-2" id="beforeAfterGrid"></div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <div class="how-steps">
+        <div class="card step"><h4>Schedule Your Free Consultation</h4><p class="muted">Pick a time that works for you — we come to you.</p></div>
+        <div class="card step"><h4>Get Expert Measurement & Product Recommendations</h4><p class="muted">We measure precisely and help you choose the perfect style.</p></div>
+        <div class="card step"><h4>Order + Professional Installation</h4><p class="muted">Sit back while we handle ordering and a spotless install.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <div class="container">
+      <h2 class="section-title">Customer Reviews</h2>
+      <div class="reviews" id="reviewsWrap">
+        <!-- Optional: your review widget can be injected here via CONFIG.reviewWidgetHtml -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container grid cols-2">
+      <div>
+        <h2 class="section-title">About Us</h2>
+        <p class="muted" id="aboutText">Locally owned by Jon Rapp, Oside Blinds & Shades brings personalized service, deep product expertise, and a zero‑pressure approach to every home.</p>
+      </div>
+      <div class="card"><img id="aboutImage" alt="Owner portrait or team photo" /></div>
+    </div>
+  </section>
+
+  <!-- CTA BOTTOM -->
+  <section>
+    <div class="container card" style="text-align:center">
+      <h2 class="section-title">Ready to transform your windows?</h2>
+      <p class="muted">Book your free consultation today.</p>
+      <div class="cta-row" style="justify-content:center">
+        <a class="btn primary" id="bottomSchedule" href="#">Schedule Now</a>
+        <a class="btn" id="bottomCall" href="#">Call / Text</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container grid cols-3">
+      <div>
+        <strong id="footerBusiness">Oceanside Blinds & Shades</strong>
+        <p class="muted"><span id="footerPhone"></span><br><span id="footerEmail"></span></p>
+        <p class="muted">Hours: <span id="footerHours">Mon–Sat 8am–6pm</span></p>
+      </div>
+      <div>
+        <strong>Service Area</strong>
+        <p class="muted">Oceanside • Carlsbad • Vista • San Marcos • Encinitas • Escondido • Fallbrook</p>
+      </div>
+      <div>
+        <strong>Links</strong>
+        <p class="muted"><a id="gmbLink" href="#">Google Business Profile</a><br><a href="/privacy.html">Privacy Policy</a> • <a href="/terms.html">Terms</a></p>
+        <p class="muted">License: <span id="licenseNum">TBD</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile sticky CTA -->
+  <div class="mobile-sticky-cta">
+    <div class="wrap">
+      <a class="btn" id="stickyText" href="#">Text</a>
+      <a class="btn" id="stickyCall" href="#">Call</a>
+      <a class="btn primary" id="stickySchedule" href="#">Schedule</a>
+    </div>
+  </div>
+
+  <script>
+    /**
+     * SITE CONFIG — update these values and deploy. No build tools needed.
+     * For image galleries, set your GitHub repo info and folder paths. Images must be in a public repo.
+     */
+    const CONFIG = {
+      businessName: "Oceanside Blinds & Shades",
+      phone: "+1-760-555-0123",       // fill in real phone
+      smsPhone: "+1-760-555-0123",    // can be same as phone
+      email: "info@example.com",       // your email
+      scheduleUrl: "https://calendly.com/your-schedule", // or link to contact form
+      googleBusinessProfileUrl: "https://g.page/your-gbp", // Google Business Profile link
+      hunterDouglasDealerLogoUrl: "/assets/hunter-douglas-dealer-badge.png", // or hosted URL
+      heroImageUrl: "/assets/hero.jpg",
+      chooseUsImageUrl: "/assets/measure.jpg",
+      aboutImageUrl: "/assets/about.jpg",
+      siteLogoUrl: "/assets/logo.png",
+      licenseNumber: "XXXXXXX",
+
+      // OPTIONAL: paste your review widget HTML (e.g., NiceJob/Google reviews embed) — or leave blank
+      reviewWidgetHtml: "",
+
+      // GitHub source for galleries — set repoOwner, repoName, branch and folder paths
+      github: {
+        owner: "your-github-username",
+        repo: "oceanside-blinds-site-assets",
+        branch: "main",
+        folders: {
+          gallery: "images/gallery",           // grid of project photos
+          beforeAfter: "images/before-after"   // pairs can be named whatever; both shown in grid
+        }
+      },
+
+      // Product categories — images and links can be edited here
+      products: [
+        { title: "Roller Shades", img: "/assets/products/roller.jpg", href: "/products/roller-shades.html" },
+        { title: "Cellular Shades (Duette)", img: "/assets/products/cellular.jpg", href: "/products/cellular-shades.html" },
+        { title: "Shutters", img: "/assets/products/shutters.jpg", href: "/products/shutters.html" },
+        { title: "Wood & Faux Wood Blinds", img: "/assets/products/wood-blinds.jpg", href: "/products/wood-blinds.html" },
+        { title: "Roman Shades", img: "/assets/products/roman.jpg", href: "/products/roman-shades.html" },
+        { title: "Sheers & Shadings (Silhouette/Pirouette)", img: "/assets/products/sheers.jpg", href: "/products/sheers-shadings.html" },
+        { title: "Automated / Smart Shades", img: "/assets/products/smart.jpg", href: "/products/automated-smart-shades.html" }
+      ]
+    };
+
+    // --- Helpers ---
+    const tel = number => `tel:${number.replace(/[^+\d]/g, '')}`;
+    const sms = number => `sms:${number.replace(/[^+\d]/g, '')}`;
+
+    function applyConfig(){
+      // Branding & images
+      document.title = `${CONFIG.businessName} | Premium Hunter Douglas in North County San Diego`;
+      document.getElementById('businessName').textContent = CONFIG.businessName;
+      document.getElementById('footerBusiness').textContent = CONFIG.businessName;
+      document.getElementById('footerPhone').textContent = CONFIG.phone;
+      document.getElementById('footerEmail').textContent = CONFIG.email;
+      document.getElementById('licenseNum').textContent = CONFIG.licenseNumber || '—';
+
+      setImg('logo', CONFIG.siteLogoUrl);
+      setImg('heroImage', CONFIG.heroImageUrl);
+      setImg('chooseUsImage', CONFIG.chooseUsImageUrl);
+      setImg('aboutImage', CONFIG.aboutImageUrl);
+      setImg('hdLogo', CONFIG.hunterDouglasDealerLogoUrl);
+
+      // Links / CTAs
+      link('gmbLink', CONFIG.googleBusinessProfileUrl);
+      link('scheduleBtn', CONFIG.scheduleUrl);
+      link('heroPrimaryCta', CONFIG.scheduleUrl);
+      link('bottomSchedule', CONFIG.scheduleUrl);
+      link('stickySchedule', CONFIG.scheduleUrl);
+
+      link('callBtn', tel(CONFIG.phone));
+      link('heroSecondaryCta', tel(CONFIG.phone));
+      link('bottomCall', tel(CONFIG.phone));
+      link('stickyCall', tel(CONFIG.phone));
+
+      link('textBtn', sms(CONFIG.smsPhone));
+      link('stickyText', sms(CONFIG.smsPhone));
+
+      // Products grid
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = CONFIG.products.map(p => `
+        <a class="card product" href="${p.href}">
+          <img src="${p.img}" alt="${p.title}" loading="lazy"/>
+          <h4>${p.title}</h4>
+        </a>`).join('');
+
+      // Reviews
+      if(CONFIG.reviewWidgetHtml){
+        document.getElementById('reviewsWrap').innerHTML = CONFIG.reviewWidgetHtml;
+      } else {
+        document.getElementById('reviewsWrap').innerHTML = `
+          <div class="card review"><div>
+            <div class="stars">★★★★★</div>
+            <p class="muted">“Fast, professional, and the shades look amazing. Scheduling was easy and the install was spotless.” — <strong>Local Homeowner</strong></p>
+          </div></div>
+          <div class="card review"><div>
+            <div class="stars">★★★★★</div>
+            <p class="muted">“Helpful recommendations without any pressure. We love our new Duettes.” — <strong>Carlsbad Client</strong></p>
+          </div></div>`;
+      }
+
+      // Load galleries from GitHub (public repos)
+      if(CONFIG.github?.owner && CONFIG.github?.repo && CONFIG.github?.branch){
+        loadGithubFolderToGrid(CONFIG.github.folders.gallery, 'galleryGrid', 12);
+        loadGithubFolderToGrid(CONFIG.github.folders.beforeAfter, 'beforeAfterGrid', 8);
+      }
+
+      injectLocalBusinessSchema();
+    }
+
+    function setImg(id, src){ const el = document.getElementById(id); if(el && src) el.src = src; }
+    function link(id, href){ const el = document.getElementById(id); if(el && href) el.href = href; }
+
+    /**
+     * GitHub folder loader
+     * Lists files in a folder and renders images.
+     * Works for public repos via the GitHub Contents API. For private repos, serve via GitHub Pages instead.
+     */
+    async function loadGithubFolderToGrid(folderPath, gridId, maxItems=20){
+      if(!folderPath) return;
+      const {owner, repo, branch} = CONFIG.github;
+      const api = `https://api.github.com/repos/${owner}/${repo}/contents/${folderPath}?ref=${encodeURIComponent(branch)}`;
+      try{
+        const res = await fetch(api);
+        if(!res.ok) throw new Error(`GitHub API error ${res.status}`);
+        const list = await res.json();
+        const images = list.filter(i => /\.(png|jpe?g|webp|gif)$/i.test(i.name)).slice(0, maxItems);
+        const rawBase = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${folderPath}`;
+        const html = images.map(i => `<img src="${rawBase}/${encodeURIComponent(i.name)}" alt="Project photo ${i.name}" loading="lazy"/>`).join('');
+        const grid = document.getElementById(gridId);
+        if(grid) grid.innerHTML = html;
+      }catch(err){
+        console.warn('Failed to load GitHub images:', err);
+      }
+    }
+
+    // JSON-LD LocalBusiness schema for SEO
+    function injectLocalBusinessSchema(){
+      const data = {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": CONFIG.businessName,
+        "image": CONFIG.heroImageUrl,
+        "telephone": CONFIG.phone,
+        "email": CONFIG.email,
+        "url": location.origin,
+        "areaServed": ["Oceanside","Carlsbad","Vista","San Marcos","Encinitas","Escondido","Fallbrook"],
+        "address": {"@type":"PostalAddress","addressLocality":"Oceanside","addressRegion":"CA","addressCountry":"US"}
+      };
+      const s = document.createElement('script');
+      s.type = 'application/ld+json';
+      s.textContent = JSON.stringify(data);
+      document.head.appendChild(s);
+    }
+
+    document.addEventListener('DOMContentLoaded', applyConfig);
+  </script>
+</body>
+</html>
