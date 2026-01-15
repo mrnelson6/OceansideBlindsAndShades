@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.verticalvisions.net)",
+      "WebFetch(domain:www.hunterdouglas.com)",
+      "WebFetch(domain:www.sunburstca.com)",
+      "WebFetch(domain:adwindowtreatments.com)",
+      "WebFetch(domain:socalshadesinc.com)",
+      "Bash(powershell -Command \"Expand-Archive -Path ''Hunter Douglas Logos.zip'' -DestinationPath ''assets'' -Force\")",
+      "Bash(dir:*)",
+      "Bash(copy:*)"
+    ]
+  }
+}
