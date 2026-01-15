@@ -29,10 +29,32 @@ This guide will help you set up a Google Apps Script to receive form submissions
 const NOTIFICATION_EMAIL = 'coastalreservellc@outlook.com';
 const SHEET_NAME = 'Oceanside Blinds - Leads'; // Change if your sheet has a different name
 
+// Handle both GET and POST (redirects can convert POST to GET)
+function doGet(e) {
+  return handleRequest(e);
+}
+
 function doPost(e) {
+  return handleRequest(e);
+}
+
+function handleRequest(e) {
   try {
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
-    const data = JSON.parse(e.postData.contents);
+    // Get sheet - try by name first, fall back to first sheet
+    let sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+    if (!sheet) {
+      sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    }
+
+    // Get form data from parameters (handle case where e or e.parameter is undefined)
+    const data = (e && e.parameter) ? e.parameter : {};
+
+    // Skip if no data received
+    if (!data.email && !data.type) {
+      return ContentService
+        .createTextOutput(JSON.stringify({ success: false, error: 'No data received' }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
 
     // Add row to sheet
     const row = [
@@ -57,6 +79,8 @@ function doPost(e) {
       .setMimeType(ContentService.MimeType.JSON);
 
   } catch (error) {
+    // Log error for debugging
+    console.error('Error in handleRequest:', error);
     return ContentService
       .createTextOutput(JSON.stringify({ success: false, error: error.toString() }))
       .setMimeType(ContentService.MimeType.JSON);
@@ -127,6 +151,26 @@ This is an automated message from your website.
     subject: subject,
     body: body
   });
+}
+
+// Test function - run this to verify the full flow (sheet + email) works
+function testFullSubmission() {
+  const testData = {
+    parameter: {
+      type: 'estimate',
+      name: 'Test User',
+      email: 'test@example.com',
+      phone: '555-1234',
+      appointmentType: 'In-home estimate',
+      preferredDate: '2025-02-01',
+      hearAbout: 'Google',
+      message: 'This is a test submission',
+      timestamp: new Date().toISOString()
+    }
+  };
+
+  const result = handleRequest(testData);
+  Logger.log('Result: ' + result.getContent());
 }
 
 // Test function - run this to verify email works

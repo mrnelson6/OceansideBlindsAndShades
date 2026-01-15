@@ -520,7 +520,10 @@
     // ============================================
     // GLOBAL CONFIG
     // ============================================
-    let CONFIG = {};
+    let CONFIG = {
+      // Fallback Google Script URL for local testing (config.json won't load from file://)
+      googleScriptUrl: 'https://script.google.com/macros/s/AKfycbzQwvsK3mkn_fIniz2fH1ikqRrh3RUUGJDSVGa87fjQGPi-PCCK9kCYjYA6vQKvu_Qi/exec'
+    };
 
     // ============================================
     // HELPER FUNCTIONS
@@ -760,11 +763,10 @@
         submitBtn.disabled = true;
 
         try {
-          const response = await fetch(CONFIG.googleScriptUrl, {
+          await fetch(CONFIG.googleScriptUrl, {
             method: 'POST',
             mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
+            body: new URLSearchParams({
               type: 'newsletter',
               email: email,
               timestamp: new Date().toISOString()
@@ -869,7 +871,7 @@
         const hearAbout = form.querySelector('#consultHearAbout').value;
         const hearAboutOther = form.querySelector('#consultHearAboutOther').value;
 
-        const formData = {
+        const formData = new URLSearchParams({
           type: 'estimate',
           name: form.querySelector('#consultName').value,
           email: form.querySelector('#consultEmail').value,
@@ -879,15 +881,14 @@
           hearAbout: hearAbout === 'Other' && hearAboutOther ? `Other: ${hearAboutOther}` : hearAbout,
           message: form.querySelector('#consultMessage').value,
           timestamp: new Date().toISOString()
-        };
+        });
 
         try {
           if (CONFIG.googleScriptUrl && CONFIG.googleScriptUrl !== 'PLACEHOLDER_GOOGLE_SCRIPT_URL') {
             await fetch(CONFIG.googleScriptUrl, {
               method: 'POST',
               mode: 'no-cors',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(formData)
+              body: formData
             });
           }
 
