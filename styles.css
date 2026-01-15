@@ -1152,25 +1152,41 @@ section {
 
 .footer-social {
   display: flex;
-  gap: 12px;
+  gap: 20px;
   margin-top: 20px;
 }
 
 .footer-social a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-light);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.footer-social a svg {
   width: 40px;
   height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 10px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-  color: var(--text-light);
   transition: var(--transition);
 }
 
-.footer-social a:hover {
+.footer-social a span {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-social a:hover svg {
   background: var(--accent);
   color: var(--primary-dark);
+}
+
+.footer-social a:hover span {
+  color: var(--accent);
 }
 
 .footer-bottom {

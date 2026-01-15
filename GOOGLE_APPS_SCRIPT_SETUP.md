@@ -201,11 +201,11 @@ function testEmail() {
 ## Step 4: Update Your Website Config
 
 1. Open `config.json` in your website folder
-2. Find the line with `"googleScriptUrl": "PLACEHOLDER_GOOGLE_SCRIPT_URL"`
-3. Replace `PLACEHOLDER_GOOGLE_SCRIPT_URL` with your Web App URL
+2. Find the line with `"googleScriptUrl": "..."`
+3. Replace the URL with your Web App URL
 
 Example:
-```json
+```javascript
 "googleScriptUrl": "https://script.google.com/macros/s/AKfycbwXXXXXXXXXXXXXXXXXXXXXXXXXXX/exec",
 ```
 
