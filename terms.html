@@ -52,11 +52,11 @@
         </a>
         <nav class="nav-main">
           <ul class="nav-links">
-            <li><a href="/#products">Products</a></li>
-            <li><a href="/#gallery">Gallery</a></li>
-            <li><a href="/#faq">FAQ</a></li>
-            <li><a href="/#about">About</a></li>
-            <li><a href="/#contact">Contact</a></li>
+            <li><a href="index.html#products">Products</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
           </ul>
           <div class="nav-cta">
             <a href="#" class="btn btn-primary" id="headerCta">Schedule Consultation</a>
@@ -146,15 +146,18 @@
     </div>
   </footer>
 
-  <script src="config.js"></script>
   <script>
     document.getElementById('currentYear').textContent = new Date().getFullYear();
-    if (CONFIG.calendlyUrl) document.getElementById('headerCta').href = CONFIG.calendlyUrl;
-    if (CONFIG.email) {
-      const emailEl = document.getElementById('contactEmail');
-      emailEl.href = 'mailto:' + CONFIG.email;
-      emailEl.textContent = CONFIG.email;
-    }
+    document.getElementById('headerCta').href = 'index.html#contact';
+    fetch('config.json')
+      .then(r => r.json())
+      .then(CONFIG => {
+        if (CONFIG.email) {
+          const emailEl = document.getElementById('contactEmail');
+          emailEl.href = 'mailto:' + CONFIG.email;
+          emailEl.textContent = CONFIG.email;
+        }
+      });
   </script>
 </body>
 </html>

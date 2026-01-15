@@ -153,8 +153,8 @@
       </div>
 
       <div class="text-center mt-4">
-        <a href="https://www.hunterdouglas.com/window-treatment-catalog" target="_blank" rel="noopener" class="btn btn-outline">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+        <a href="catalog.html" class="btn btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4 6h-4v2h4v2h-4v2h4v2H9V7h6v2z"/></svg>
           Browse Full Hunter Douglas Catalog
         </a>
       </div>
@@ -388,7 +388,7 @@
           <a href="#gallery">Gallery</a>
           <a href="#faq">FAQ</a>
           <a href="#about">About Us</a>
-          <a href="https://www.hunterdouglas.com/window-treatment-catalog" target="_blank" rel="noopener">Hunter Douglas Catalog</a>
+          <a href="catalog.html">Hunter Douglas Catalog</a>
         </div>
 
         <div class="footer-links">
@@ -427,6 +427,76 @@
   </footer>
 
   <!-- ============================================
+       CONSULTATION MODAL
+       ============================================ -->
+  <div class="modal-overlay" id="consultationModal">
+    <div class="modal">
+      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+      <div class="modal-header">
+        <h2>Schedule Your Free Consultation</h2>
+        <p>Fill out the form below and we'll contact you to set up a convenient time.</p>
+      </div>
+      <form class="modal-form" id="consultationForm">
+        <div class="form-group">
+          <label for="consultName">Name *</label>
+          <input type="text" id="consultName" name="name" required placeholder="Your full name">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="consultEmail">Email *</label>
+            <input type="email" id="consultEmail" name="email" required placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label for="consultPhone">Phone *</label>
+            <input type="tel" id="consultPhone" name="phone" required placeholder="(555) 555-5555">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="consultAppointmentType">Appointment Type *</label>
+            <select id="consultAppointmentType" name="appointmentType" required>
+              <option value="">Select type...</option>
+              <option value="In-home estimate">In-home estimate</option>
+              <option value="Showroom appointment">Showroom appointment</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="consultPreferredDate">Preferred Date</label>
+            <input type="date" id="consultPreferredDate" name="preferredDate">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="consultHearAbout">How did you hear about us?</label>
+          <select id="consultHearAbout" name="hearAbout">
+            <option value="">Select...</option>
+            <option value="Google">Google</option>
+            <option value="Yelp">Yelp</option>
+            <option value="TV">TV</option>
+            <option value="Referral">Referral</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group" id="hearAboutOtherGroup" style="display: none;">
+          <label for="consultHearAboutOther">Please specify</label>
+          <input type="text" id="consultHearAboutOther" name="hearAboutOther" placeholder="How did you find us?">
+        </div>
+        <div class="form-group">
+          <label for="consultMessage">Tell us about your project</label>
+          <textarea id="consultMessage" name="message" rows="3" placeholder="Number of windows, type of rooms, any specific needs..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Request Consultation</button>
+        <p class="form-note">We'll respond within 24 hours to schedule your free in-home consultation.</p>
+      </form>
+      <div class="modal-success" id="modalSuccess" style="display: none;">
+        <div class="success-icon">&#10003;</div>
+        <h3>Thank You!</h3>
+        <p>We've received your request and will contact you within 24 hours to schedule your free consultation.</p>
+        <button class="btn btn-primary" id="modalSuccessClose">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
        MOBILE STICKY CTA
        ============================================ -->
   <div class="mobile-cta">
@@ -446,14 +516,31 @@
   <!-- ============================================
        SCRIPTS
        ============================================ -->
-  <script src="config.js"></script>
   <script>
+    // ============================================
+    // GLOBAL CONFIG
+    // ============================================
+    let CONFIG = {};
+
     // ============================================
     // HELPER FUNCTIONS
     // ============================================
     const tel = (number) => `tel:${number.replace(/[^+\d]/g, '')}`;
     const sms = (number) => `sms:${number.replace(/[^+\d]/g, '')}`;
     const mailto = (email) => `mailto:${email}`;
+
+    // ============================================
+    // LOAD CONFIG FROM JSON
+    // ============================================
+    async function loadConfig() {
+      try {
+        const response = await fetch('config.json');
+        CONFIG = await response.json();
+        applyConfig();
+      } catch (error) {
+        console.error('Error loading config:', error);
+      }
+    }
 
     // ============================================
     // APPLY CONFIG
@@ -486,11 +573,17 @@
         if (el && CONFIG.smsPhone) el.href = sms(CONFIG.smsPhone);
       });
 
-      // Schedule/Calendly links
+      // Schedule buttons - open modal
       const scheduleLinks = ['headerCta', 'heroCta', 'howItWorksCta', 'finalCta', 'mobileSchedule'];
       scheduleLinks.forEach(id => {
         const el = document.getElementById(id);
-        if (el && CONFIG.calendlyUrl) el.href = CONFIG.calendlyUrl;
+        if (el) {
+          el.href = '#';
+          el.addEventListener('click', (e) => {
+            e.preventDefault();
+            openConsultationModal();
+          });
+        }
       });
 
       // Email
@@ -655,7 +748,7 @@
     }
 
     // ============================================
-    // EMAIL FORM (FORMSPREE)
+    // EMAIL FORM (GOOGLE APPS SCRIPT)
     // ============================================
     function setupEmailForm() {
       const form = document.getElementById('emailForm');
@@ -663,44 +756,150 @@
 
       if (!form) return;
 
-      // Set Formspree action if configured
-      if (CONFIG.formspreeId && CONFIG.formspreeId !== 'PLACEHOLDER_FORMSPREE') {
-        form.action = `https://formspree.io/f/${CONFIG.formspreeId}`;
-      }
-
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
-        if (!CONFIG.formspreeId || CONFIG.formspreeId === 'PLACEHOLDER_FORMSPREE') {
+        if (!CONFIG.googleScriptUrl || CONFIG.googleScriptUrl === 'PLACEHOLDER_GOOGLE_SCRIPT_URL') {
           message.textContent = 'Email signup coming soon!';
           message.style.display = 'block';
           message.style.color = 'rgba(255,255,255,0.75)';
           return;
         }
 
-        const formData = new FormData(form);
+        const email = form.querySelector('input[name="email"]').value;
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
 
         try {
-          const response = await fetch(form.action, {
+          const response = await fetch(CONFIG.googleScriptUrl, {
             method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              type: 'newsletter',
+              email: email,
+              timestamp: new Date().toISOString()
+            })
           });
 
-          if (response.ok) {
-            message.textContent = 'Thanks for subscribing!';
-            message.style.color = '#22c55e';
-            form.reset();
-          } else {
-            message.textContent = 'Oops! Something went wrong. Please try again.';
-            message.style.color = '#ef4444';
-          }
+          // With no-cors, we can't read the response, but if no error thrown, assume success
+          message.textContent = 'Thanks for subscribing!';
+          message.style.color = '#22c55e';
+          form.reset();
         } catch (error) {
           message.textContent = 'Oops! Something went wrong. Please try again.';
           message.style.color = '#ef4444';
         }
 
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
         message.style.display = 'block';
+      });
+    }
+
+    // ============================================
+    // CONSULTATION MODAL
+    // ============================================
+    function openConsultationModal() {
+      const modal = document.getElementById('consultationModal');
+      const form = document.getElementById('consultationForm');
+      const success = document.getElementById('modalSuccess');
+
+      // Reset to form view
+      form.style.display = 'block';
+      success.style.display = 'none';
+      form.reset();
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeConsultationModal() {
+      const modal = document.getElementById('consultationModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function setupConsultationModal() {
+      const modal = document.getElementById('consultationModal');
+      const closeBtn = document.getElementById('modalClose');
+      const successCloseBtn = document.getElementById('modalSuccessClose');
+      const form = document.getElementById('consultationForm');
+      const success = document.getElementById('modalSuccess');
+      const hearAboutSelect = document.getElementById('consultHearAbout');
+      const hearAboutOtherGroup = document.getElementById('hearAboutOtherGroup');
+
+      // Show/hide "Other" text field based on dropdown selection
+      hearAboutSelect.addEventListener('change', function() {
+        if (this.value === 'Other') {
+          hearAboutOtherGroup.style.display = 'block';
+        } else {
+          hearAboutOtherGroup.style.display = 'none';
+          document.getElementById('consultHearAboutOther').value = '';
+        }
+      });
+
+      // Close button
+      closeBtn.addEventListener('click', closeConsultationModal);
+      successCloseBtn.addEventListener('click', closeConsultationModal);
+
+      // Click outside to close
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeConsultationModal();
+      });
+
+      // Escape key to close
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          closeConsultationModal();
+        }
+      });
+
+      // Form submission
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        const hearAbout = form.querySelector('#consultHearAbout').value;
+        const hearAboutOther = form.querySelector('#consultHearAboutOther').value;
+
+        const formData = {
+          type: 'estimate',
+          name: form.querySelector('#consultName').value,
+          email: form.querySelector('#consultEmail').value,
+          phone: form.querySelector('#consultPhone').value,
+          appointmentType: form.querySelector('#consultAppointmentType').value,
+          preferredDate: form.querySelector('#consultPreferredDate').value,
+          hearAbout: hearAbout === 'Other' && hearAboutOther ? `Other: ${hearAboutOther}` : hearAbout,
+          message: form.querySelector('#consultMessage').value,
+          timestamp: new Date().toISOString()
+        };
+
+        try {
+          if (CONFIG.googleScriptUrl && CONFIG.googleScriptUrl !== 'PLACEHOLDER_GOOGLE_SCRIPT_URL') {
+            await fetch(CONFIG.googleScriptUrl, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(formData)
+            });
+          }
+
+          // Show success message
+          form.style.display = 'none';
+          success.style.display = 'block';
+        } catch (error) {
+          alert('Something went wrong. Please try again or call us directly.');
+        }
+
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
       });
     }
 
@@ -781,9 +980,10 @@
     // INIT
     // ============================================
     document.addEventListener('DOMContentLoaded', () => {
-      applyConfig();
+      loadConfig();
       setupHeaderScroll();
       setupSmoothScroll();
+      setupConsultationModal();
     });
   </script>
 </body>

@@ -93,11 +93,11 @@
         </a>
         <nav class="nav-main">
           <ul class="nav-links">
-            <li><a href="../#products">Products</a></li>
-            <li><a href="../#gallery">Gallery</a></li>
-            <li><a href="../#faq">FAQ</a></li>
-            <li><a href="../#about">About</a></li>
-            <li><a href="../#contact">Contact</a></li>
+            <li><a href="../index.html#products">Products</a></li>
+            <li><a href="../index.html#gallery">Gallery</a></li>
+            <li><a href="../index.html#faq">FAQ</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
           </ul>
           <div class="nav-cta">
             <a href="#" class="btn btn-primary" id="headerCta">Schedule Consultation</a>
@@ -162,12 +162,11 @@
     </div>
   </footer>
 
-  <script src="../config.js"></script>
   <script>
     document.getElementById('currentYear').textContent = new Date().getFullYear();
     ['headerCta', 'finalCta'].forEach(id => {
       const el = document.getElementById(id);
-      if (el && CONFIG.calendlyUrl) el.href = CONFIG.calendlyUrl;
+      if (el) el.href = '../index.html#contact';
     });
   </script>
 </body>

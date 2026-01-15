@@ -1,0 +1,178 @@
+{
+  "businessName": "Oceanside Blinds & Shades",
+  "ownerName": "Jon Rapp",
+  "tagline": "Premium Hunter Douglas Window Coverings",
+  "phone": "PLACEHOLDER_PHONE",
+  "smsPhone": "PLACEHOLDER_SMS_PHONE",
+  "email": "coastalreservellc@outlook.com",
+  "licenseNumber": "PLACEHOLDER_LICENSE",
+
+  "showroom": {
+    "address": "PLACEHOLDER_ADDRESS",
+    "city": "Oceanside",
+    "state": "CA",
+    "zip": "PLACEHOLDER_ZIP",
+    "hours": "Mon-Sat 9am-5pm",
+    "byAppointment": true
+  },
+
+  "serviceAreas": [
+    "Oceanside",
+    "Carlsbad",
+    "Vista",
+    "San Marcos",
+    "Encinitas",
+    "Escondido",
+    "Fallbrook",
+    "Bonsall",
+    "Del Mar",
+    "Solana Beach",
+    "Rancho Santa Fe"
+  ],
+
+  "calendlyUrl": "PLACEHOLDER_CALENDLY",
+  "googleScriptUrl": "https://script.google.com/macros/s/AKfycbzQwvsK3mkn_fIniz2fH1ikqRrh3RUUGJDSVGa87fjQGPi-PCCK9kCYjYA6vQKvu_Qi/exec",
+  "googleBusinessUrl": "PLACEHOLDER_GOOGLE_BIZ",
+  "yelpUrl": "PLACEHOLDER_YELP",
+
+  "social": {
+    "facebook": "PLACEHOLDER_FACEBOOK",
+    "instagram": "PLACEHOLDER_INSTAGRAM",
+    "pinterest": "",
+    "youtube": ""
+  },
+
+  "hunterDouglas": {
+    "dealerPage": "https://www.hunterdouglas.com/",
+    "catalogUrl": "catalog.html",
+    "dealerBadgeUrl": "assets/hunter-douglas-dealer-badge.png"
+  },
+
+  "about": {
+    "headline": "Your Local Window Covering Experts",
+    "story": "Oceanside Blinds & Shades is locally owned and operated by Jon Rapp, bringing years of expertise in custom window treatments to North County San Diego. We believe in honest recommendations, quality craftsmanship, and building lasting relationships with our clients.\n\nAs a certified Hunter Douglas dealer, we offer the finest window coverings backed by industry-leading warranties. From your first consultation to final installation, we handle every detail with care.",
+    "yearsInBusiness": "PLACEHOLDER_YEARS",
+    "highlights": [
+      "Locally owned & operated",
+      "Hunter Douglas certified dealer",
+      "Free in-home consultations",
+      "Professional installation"
+    ]
+  },
+
+  "faq": [
+    {
+      "question": "How does the free consultation work?",
+      "answer": "We'll come to your home at a time that works for you, measure your windows, discuss your style preferences and needs, and show you product samples. There's no obligation or pressure - just honest advice to help you make the best choice for your home."
+    },
+    {
+      "question": "How long does installation take?",
+      "answer": "Most Hunter Douglas products are custom-made and typically arrive within 3-4 weeks of ordering. Installation usually takes just a few hours depending on the number of windows, and we leave your home spotless."
+    },
+    {
+      "question": "Do you offer motorized/smart shades?",
+      "answer": "Yes! We specialize in Hunter Douglas PowerView automation, which integrates with smart home systems like Alexa, Google Home, and Apple HomeKit. Schedule your shades to open and close automatically or control them from your phone."
+    },
+    {
+      "question": "What areas do you serve?",
+      "answer": "We proudly serve all of North County San Diego including Oceanside, Carlsbad, Vista, San Marcos, Encinitas, Escondido, Fallbrook, and surrounding communities."
+    },
+    {
+      "question": "What warranty do you offer?",
+      "answer": "Hunter Douglas products come with a lifetime limited warranty covering defects in materials and workmanship. We also stand behind our installation work and are always available for adjustments or service."
+    },
+    {
+      "question": "Can you help with hard-to-reach or specialty windows?",
+      "answer": "Absolutely! We have experience with skylights, large sliding doors, bay windows, arched windows, and other challenging installations. Motorized options are often ideal for hard-to-reach windows."
+    }
+  ],
+
+  "products": [
+    {
+      "id": "roller-shades",
+      "title": "Roller Shades",
+      "shortDesc": "Clean, modern look with versatile light control",
+      "image": "2023_DRS_PV_Eastbourne_Living_Room.png",
+      "hunterDouglasUrl": "https://www.hunterdouglas.com/roller-shades"
+    },
+    {
+      "id": "cellular-shades",
+      "title": "Cellular Shades",
+      "shortDesc": "Energy-efficient honeycomb design for insulation",
+      "image": "2020_DRS_CC_Yorkshire_LivingRoom.png",
+      "hunterDouglasUrl": "https://www.hunterdouglas.com/cellular-honeycomb-shades"
+    },
+    {
+      "id": "shutters",
+      "title": "Shutters",
+      "shortDesc": "Timeless elegance with lasting durability",
+      "image": "2017_DRS_PV_Brunswick_Bedroom.png",
+      "hunterDouglasUrl": "https://www.hunterdouglas.com/shutters"
+    },
+    {
+      "id": "wood-blinds",
+      "title": "Wood & Faux Wood Blinds",
+      "shortDesc": "Classic warmth with precise light control",
+      "image": "2023 DRS PV Hope Great Room.png",
+      "hunterDouglasUrl": "https://www.hunterdouglas.com/wood-blinds"
+    },
+    {
+      "id": "roman-shades",
+      "title": "Roman Shades",
+      "shortDesc": "Soft fabric elegance in timeless folds",
+      "image": "2023 DRS LR Urban Loft Hues Kids Room.png",
+      "hunterDouglasUrl": "https://www.hunterdouglas.com/roman-shades"
+    },
+    {
+      "id": "sheers-shadings",
+      "title": "Sheers & Shadings",
+      "shortDesc": "Soft light diffusion with a view",
+      "image": "2023_DRS_PV_Eastbourne_Living_Room.png",
+      "hunterDouglasUrl": "https://www.hunterdouglas.com/sheers-shadings"
+    },
+    {
+      "id": "smart-shades",
+      "title": "Smart & Motorized Shades",
+      "shortDesc": "Automated convenience with smart home integration",
+      "image": "2020_DRS_CC_Yorkshire_LivingRoom.png",
+      "hunterDouglasUrl": "https://www.hunterdouglas.com/motorized-window-treatments"
+    }
+  ],
+
+  "testimonials": [
+    {
+      "quote": "From measurement to installation, the entire process was seamless. Our new Duette shades look amazing and have already made a difference in our energy bills.",
+      "author": "Sarah M.",
+      "location": "Carlsbad"
+    },
+    {
+      "quote": "Jon was incredibly knowledgeable and patient, helping us choose the perfect window treatments for each room. No pressure, just great advice. Highly recommend!",
+      "author": "Mike & Lisa R.",
+      "location": "Oceanside"
+    },
+    {
+      "quote": "We had some tricky windows and they handled everything perfectly. The motorized shades are a game-changer - we love controlling them from our phones!",
+      "author": "Jennifer T.",
+      "location": "Encinitas"
+    }
+  ],
+
+  "images": {
+    "logo": "logo.JPEG",
+    "heroImage": "2023_DRS_PV_Eastbourne_Living_Room.png",
+    "aboutImage": "2017_DRS_PV_Brunswick_Bedroom.png",
+    "galleryImages": [
+      "2017_DRS_PV_Brunswick_Bedroom.png",
+      "2020_DRS_CC_Yorkshire_LivingRoom.png",
+      "2023 DRS LR Urban Loft Hues Kids Room.png",
+      "2023 DRS PV Hope Great Room.png",
+      "2023_DRS_PV_Eastbourne_Living_Room.png"
+    ]
+  },
+
+  "seo": {
+    "title": "Oceanside Blinds & Shades | Premium Hunter Douglas in North County San Diego",
+    "description": "Premium Hunter Douglas shades & blinds with free in-home consultations in Oceanside, Carlsbad, Vista, Encinitas, and North County San Diego. Expert measurement, honest guidance, professional installation.",
+    "keywords": "blinds, shades, shutters, Hunter Douglas, Oceanside, Carlsbad, Vista, San Marcos, Encinitas, North County San Diego, window treatments, window coverings"
+  }
+}

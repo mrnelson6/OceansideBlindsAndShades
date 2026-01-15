@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hunter Douglas Catalog | Oceanside Blinds & Shades</title>
+  <meta name="description" content="Browse the official Hunter Douglas product catalog. Explore premium window treatments including shades, blinds, and shutters.">
+
+  <link rel="icon" type="image/jpeg" href="logo.JPEG">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .catalog-hero {
+      padding: 140px 0 60px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    }
+    .catalog-hero h1 { color: var(--text-light); margin-bottom: 16px; }
+    .catalog-hero p { color: rgba(255,255,255,0.85); font-size: 1.125rem; max-width: 600px; }
+    .catalog-hero .breadcrumb { margin-bottom: 24px; }
+    .catalog-hero .breadcrumb a { color: rgba(255,255,255,0.7); }
+    .catalog-hero .breadcrumb span { color: var(--accent); }
+
+    .catalog-section {
+      padding: 60px 0 80px;
+    }
+
+    .catalog-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+    .catalog-intro p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .pdf-container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .pdf-embed {
+      width: 100%;
+      height: 80vh;
+      min-height: 600px;
+      border: none;
+    }
+
+    .pdf-fallback {
+      padding: 60px 40px;
+      text-align: center;
+      display: none;
+    }
+    .pdf-fallback h3 { margin-bottom: 16px; }
+    .pdf-fallback p { color: var(--muted); margin-bottom: 24px; }
+
+    .catalog-cta {
+      text-align: center;
+      margin-top: 48px;
+      padding: 40px;
+      background: var(--bg-alt);
+      border-radius: var(--radius);
+    }
+    .catalog-cta h3 { margin-bottom: 12px; }
+    .catalog-cta p { color: var(--muted); margin-bottom: 24px; }
+
+    @media (max-width: 768px) {
+      .pdf-embed {
+        height: 60vh;
+        min-height: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img src="logo.JPEG" alt="Oceanside Blinds & Shades">
+          <span class="logo-text">Oceanside Blinds & Shades</span>
+        </a>
+        <nav class="nav-main">
+          <ul class="nav-links">
+            <li><a href="index.html#products">Products</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+          <div class="nav-cta">
+            <a href="#" class="btn btn-primary" id="headerCta">Schedule Consultation</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="catalog-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">Home</a> / <span>Hunter Douglas Catalog</span>
+      </div>
+      <h1>Hunter Douglas Product Catalog</h1>
+      <p>Browse the complete collection of premium Hunter Douglas window treatments. Find inspiration for your home.</p>
+    </div>
+  </section>
+
+  <section class="catalog-section">
+    <div class="container">
+      <div class="catalog-intro">
+        <p>Explore the full range of Hunter Douglas window coverings in this comprehensive design brochure. From elegant roller shades to energy-efficient cellular shades, discover the perfect solution for every room in your home.</p>
+      </div>
+
+      <div class="pdf-container">
+        <iframe
+          class="pdf-embed"
+          src="hunter-douglas-design-brochure-US.pdf#toolbar=1&navpanes=1&scrollbar=1"
+          title="Hunter Douglas Product Catalog"
+          loading="lazy">
+        </iframe>
+
+        <div class="pdf-fallback" id="pdfFallback">
+          <h3>View the Catalog</h3>
+          <p>Your browser may not support embedded PDFs. Click below to download or view the catalog directly.</p>
+          <a href="hunter-douglas-design-brochure-US.pdf" target="_blank" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            Download Catalog (PDF)
+          </a>
+        </div>
+      </div>
+
+      <div class="catalog-cta">
+        <h3>Ready to See These Products in Person?</h3>
+        <p>Schedule a free in-home consultation and we'll bring samples directly to you.</p>
+        <a href="#" class="btn btn-primary btn-lg" id="catalogCta">Schedule Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <p>&copy; <span id="currentYear">2025</span> Oceanside Blinds & Shades. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Check if PDF is supported, show fallback if not
+    function checkPdfSupport() {
+      const iframe = document.querySelector('.pdf-embed');
+      const fallback = document.getElementById('pdfFallback');
+
+      // On mobile or if PDF doesn't load well, show download option
+      if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        iframe.style.display = 'none';
+        fallback.style.display = 'block';
+      }
+    }
+
+    checkPdfSupport();
+
+    ['headerCta', 'catalogCta'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.href = 'index.html#contact';
+    });
+  </script>
+</body>
+</html>
