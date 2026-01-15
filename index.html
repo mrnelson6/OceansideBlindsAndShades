@@ -573,19 +573,6 @@
         if (el && CONFIG.smsPhone) el.href = sms(CONFIG.smsPhone);
       });
 
-      // Schedule buttons - open modal
-      const scheduleLinks = ['headerCta', 'heroCta', 'howItWorksCta', 'finalCta', 'mobileSchedule'];
-      scheduleLinks.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-          el.href = '#';
-          el.addEventListener('click', (e) => {
-            e.preventDefault();
-            openConsultationModal();
-          });
-        }
-      });
-
       // Email
       if (CONFIG.email && CONFIG.email !== 'PLACEHOLDER_EMAIL') {
         document.getElementById('footerEmailLink').textContent = CONFIG.email;
@@ -830,6 +817,19 @@
       const success = document.getElementById('modalSuccess');
       const hearAboutSelect = document.getElementById('consultHearAbout');
       const hearAboutOtherGroup = document.getElementById('hearAboutOtherGroup');
+
+      // Schedule buttons - open modal (set up independently of config)
+      const scheduleLinks = ['headerCta', 'heroCta', 'howItWorksCta', 'finalCta', 'mobileSchedule'];
+      scheduleLinks.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.href = '#';
+          el.addEventListener('click', (e) => {
+            e.preventDefault();
+            openConsultationModal();
+          });
+        }
+      });
 
       // Show/hide "Other" text field based on dropdown selection
       hearAboutSelect.addEventListener('change', function() {
